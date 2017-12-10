@@ -1,5 +1,6 @@
 from typing import NamedTuple
 
+from mastermind.module.game.domain.error.game_errors import GameAlreadyExists
 from mastermind.module.game.domain.game_repository import GameRepository
 from mastermind.module.game.domain.model.code_peg import CodePeg
 from mastermind.module.game.domain.model.game import Game
@@ -16,12 +17,17 @@ class GameCreator:
                second_code_peg: CodePeg,
                third_code_peg: CodePeg,
                fourth_code_peg: CodePeg) -> None:
-        self.game_repository.insert(
-            Game(game_id,
-                 first_code_peg,
-                 second_code_peg,
-                 third_code_peg,
-                 fourth_code_peg))
+
+        maybe_game = self.game_repository.search(game_id)
+        if maybe_game is not None:
+            raise GameAlreadyExists(game_id)
+        else:
+            self.game_repository.insert(
+                Game(game_id,
+                     first_code_peg,
+                     second_code_peg,
+                     third_code_peg,
+                     fourth_code_peg))
 
 
 CreateGameCommand = NamedTuple("CreateGameCommand",
