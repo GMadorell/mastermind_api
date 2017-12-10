@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+   mastermind_db:
+     image: mysql:5.7
+     restart: always
+     ports:
+      - "12121:3306"
+     environment:
+       MYSQL_ROOT_PASSWORD: mastermind
+       MYSQL_DATABASE: mastermind
+       MYSQL_USER: mastermind
+       MYSQL_PASSWORD: mastermind

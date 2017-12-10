@@ -1,5 +1,5 @@
 from mastermind.module.game.domain.model.game_id import GameId
-from mastermind.module.shared.test.infrastructure.random_uuid\
+from mastermind.module.shared.test.infrastructure.random.random_uuid \
     import random_uuid
 
 
