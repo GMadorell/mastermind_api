@@ -31,11 +31,11 @@ class GameCreator:
 
 
 CreateGameCommand = NamedTuple("CreateGameCommand",
-                               [("game_id", GameId),
-                                ("first_code_peg", CodePeg),
-                                ("second_code_peg", CodePeg),
-                                ("third_code_peg", CodePeg),
-                                ("fourth_code_peg", CodePeg)])
+                               [("game_id", str),
+                                ("first_code_peg", int),
+                                ("second_code_peg", int),
+                                ("third_code_peg", int),
+                                ("fourth_code_peg", int)])
 
 
 class CreateGameCommandHandler:
@@ -45,8 +45,8 @@ class CreateGameCommandHandler:
     def handle(self, command: CreateGameCommand) -> None:
         game_id = GameId(command.game_id)
         first_code_peg = CodePeg(command.first_code_peg)
-        second_code_peg = CodePeg(command.first_code_peg)
-        third_code_peg = CodePeg(command.first_code_peg)
-        fourth_code_peg = CodePeg(command.first_code_peg)
+        second_code_peg = CodePeg(command.second_code_peg)
+        third_code_peg = CodePeg(command.third_code_peg)
+        fourth_code_peg = CodePeg(command.fourth_code_peg)
         self.creator.create(game_id, first_code_peg,
                             second_code_peg, third_code_peg, fourth_code_peg)
