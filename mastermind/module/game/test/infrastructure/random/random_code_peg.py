@@ -1,6 +1,6 @@
 import random
 
-from mastermind.module.game.domain.model.code_peg import CodePeg
+from mastermind.module.shared.domain.model.code_peg import CodePeg
 from mastermind.module.shared.test.infrastructure.random.random_element import random_element
 
 

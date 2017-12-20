@@ -1,14 +1,15 @@
-from mastermind.module.game.application.create_game_use_case\
+
+from mastermind.module.game.application.create_game_use_case \
     import CreateGameCommandHandler, GameCreator
 from mastermind.module.game.domain.error.game_errors import GameAlreadyExists
-from mastermind.module.game.domain.model.code_peg import CodePeg
 from mastermind.module.game.domain.model.game import Game
-from mastermind.module.game.domain.model.game_id import GameId
-from mastermind.module.game.test.behaviour.game_behaviour_spec\
+from mastermind.module.game.test.behaviour.game_behaviour_spec \
     import GameBehaviourSpec
-from mastermind.module.game.test.infrastructure.random.\
+from mastermind.module.game.test.infrastructure.random. \
     random_create_game_command import random_create_game_command
 from mastermind.module.game.test.infrastructure.random.random_game import random_game
+from mastermind.module.shared.domain.model.code_peg import CodePeg
+from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class CreateGameSpecTest(GameBehaviourSpec):
@@ -27,7 +28,8 @@ class CreateGameSpecTest(GameBehaviourSpec):
             CodePeg(command.first_code_peg),
             CodePeg(command.second_code_peg),
             CodePeg(command.third_code_peg),
-            CodePeg(command.fourth_code_peg))
+            CodePeg(command.fourth_code_peg)
+        )
 
         self.should_not_find_game(game_id)
         self.should_insert_game(expected_game)

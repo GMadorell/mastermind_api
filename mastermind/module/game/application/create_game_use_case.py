@@ -2,9 +2,9 @@ from typing import NamedTuple
 
 from mastermind.module.game.domain.error.game_errors import GameAlreadyExists
 from mastermind.module.game.domain.game_repository import GameRepository
-from mastermind.module.game.domain.model.code_peg import CodePeg
 from mastermind.module.game.domain.model.game import Game
-from mastermind.module.game.domain.model.game_id import GameId
+from mastermind.module.shared.domain.model.code_peg import CodePeg
+from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class GameCreator:

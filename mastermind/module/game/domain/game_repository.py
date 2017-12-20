@@ -2,7 +2,7 @@ import abc
 from typing import Optional
 
 from mastermind.module.game.domain.model.game import Game
-from mastermind.module.game.domain.model.game_id import GameId
+from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class GameRepository(abc.ABC):

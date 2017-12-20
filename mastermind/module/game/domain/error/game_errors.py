@@ -1,6 +1,6 @@
 import abc
 
-from mastermind.module.game.domain.model.game_id import GameId
+from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class GameError(abc.ABC, Exception):
