@@ -11,8 +11,10 @@ class GuessRepository(abc.ABC):
     def insert(self, guess: Guess) -> None:
         pass
 
+    @abc.abstractmethod
     def search(self, guess_id: GuessId) -> Optional[Guess]:
         pass
 
+    @abc.abstractmethod
     def search_by_game_id(self, game_id: GameId) -> List[Guess]:
         pass
