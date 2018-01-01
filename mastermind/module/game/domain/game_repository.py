@@ -10,5 +10,6 @@ class GameRepository(abc.ABC):
     def insert(self, game: Game) -> None:
         pass
 
+    @abc.abstractmethod
     def search(self, game_id: GameId) -> Optional[Game]:
         pass

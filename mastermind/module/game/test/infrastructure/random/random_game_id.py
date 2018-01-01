@@ -14,3 +14,7 @@ def random_game_id(game_id: Optional[str] = None) -> GameId:
 
 def invalid_game_id()-> str:
     return random_element(["", remove_random_char(random_uuid())])
+
+
+def non_empty_invalid_game_id() -> str:
+    return remove_random_char(random_uuid())

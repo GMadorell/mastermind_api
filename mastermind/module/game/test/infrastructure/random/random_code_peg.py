@@ -9,5 +9,5 @@ def random_code_peg(peg_type: int = None) -> CodePeg:
     return CodePeg(peg_type)
 
 
-def invalid_code_peg()->int:
+def invalid_code_peg() -> int:
     return random_element([-1, random.randrange(7, 20)])
