@@ -1,7 +1,10 @@
 from mastermind.module.guess.domain.model.guess_id import GuessId
-from mastermind.module.shared.test.infrastructure.random.random_element import random_element
-from mastermind.module.shared.test.infrastructure.random.random_uuid import random_uuid
-from mastermind.module.shared.test.infrastructure.string.string_utils import remove_random_char
+from mastermind.module.shared.test.infrastructure.random.random_element\
+    import random_element
+from mastermind.module.shared.test.infrastructure.random.random_uuid\
+    import random_uuid
+from mastermind.module.shared.test.infrastructure.string.string_utils\
+    import remove_random_char
 
 
 def random_guess_id(guess_id: str = None) -> GuessId:

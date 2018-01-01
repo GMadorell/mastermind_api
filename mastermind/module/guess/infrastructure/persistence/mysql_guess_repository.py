@@ -17,7 +17,10 @@ class MySQLGuessRepository(GuessRepository):
         self.database.query(
             """
             INSERT INTO guesses
-            (guess_id, game_id, first_code_peg, second_code_peg, third_code_peg, fourth_code_peg)
+            (
+                guess_id, game_id, first_code_peg, second_code_peg,
+                third_code_peg, fourth_code_peg
+            )
             VALUES
             ('{}', '{}', '{}', '{}', '{}', '{}')
             """.format(
@@ -32,7 +35,8 @@ class MySQLGuessRepository(GuessRepository):
 
     def search(self, guess_id: GuessId) -> Optional[Guess]:
         maybe_record = self.database.query(
-            """select * from guesses where guess_id = '{}'""".format(guess_id.guess_id)
+            """select * from guesses where guess_id = '{}'""".format(
+                guess_id.guess_id)
         ).first(as_dict=True)
         if maybe_record is None:
             return None
@@ -41,7 +45,8 @@ class MySQLGuessRepository(GuessRepository):
 
     def search_by_game_id(self, game_id: GameId) -> List[Guess]:
         records = self.database.query(
-            """SELECT * FROM guesses WHERE game_id = '{}'""".format(game_id.game_id)
+            """SELECT * FROM guesses WHERE game_id = '{}'""".format(
+                game_id.game_id)
         ).all(as_dict=True)
         return list(map(self.__record_dict_to_guess, records))
 

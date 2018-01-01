@@ -1,7 +1,9 @@
 from typing import NamedTuple
 
-from mastermind.module.game.application.search_game_use_case import SearchGameResponse, SearchGameQuery
-from mastermind.module.guess.domain.error.guess_errors import GuessesLimitExceeded, GuessAlreadyExists, GameNotFound
+from mastermind.module.game.application.search_game_use_case \
+    import SearchGameResponse, SearchGameQuery
+from mastermind.module.guess.domain.error.guess_errors \
+    import GuessesLimitExceeded, GuessAlreadyExists, GameNotFound
 from mastermind.module.guess.domain.guess_repository import GuessRepository
 from mastermind.module.guess.domain.model.guess import Guess
 from mastermind.module.guess.domain.model.guess_id import GuessId
@@ -41,7 +43,8 @@ class GuessCreator:
                       fourth_code_peg))
 
     def _game_exists(self, game_id: GameId) -> bool:
-        response: SearchGameResponse = self.query_bus.ask(SearchGameQuery(game_id.game_id))
+        response: SearchGameResponse = self.query_bus.ask(
+            SearchGameQuery(game_id.game_id))
         return response.maybe_game_response is not None
 
     def _guess_exists(self, guess_id: GuessId) -> bool:

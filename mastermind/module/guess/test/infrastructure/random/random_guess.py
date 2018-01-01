@@ -1,8 +1,11 @@
-from mastermind.module.game.test.infrastructure.random.random_code_peg import random_code_peg
-from mastermind.module.game.test.infrastructure.random.random_game_id import random_game_id
+from mastermind.module.game.test.infrastructure.random.random_code_peg\
+    import random_code_peg
+from mastermind.module.game.test.infrastructure.random.random_game_id\
+    import random_game_id
 from mastermind.module.guess.domain.model.guess import Guess
 from mastermind.module.guess.domain.model.guess_id import GuessId
-from mastermind.module.guess.test.infrastructure.random.random_guess_id import random_guess_id
+from mastermind.module.guess.test.infrastructure.random.random_guess_id\
+    import random_guess_id
 from mastermind.module.shared.domain.model.code_peg import CodePeg
 from mastermind.module.shared.domain.model.game_id import GameId
 

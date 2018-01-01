@@ -23,13 +23,20 @@ class GameBehaviourSpec(unittest.TestCase):
 
     def should_not_find_game(self, game_id: GameId):
         self.game_repository.search.return_value = None
-        self.mock_assertions.append(lambda: self.game_repository.search.assert_called_once_with(game_id))
+        self.mock_assertions.append(
+            lambda: self.game_repository
+                        .search
+                        .assert_called_once_with(game_id)
+        )
 
     def should_find_game(self, game_id: GameId, game: Game):
         self.game_repository.search.return_value = game
-        self.mock_assertions.append(lambda: self.game_repository.search.assert_called_once_with(game_id))
+        self.mock_assertions.append(
+            lambda: self.game_repository
+                        .search
+                        .assert_called_once_with(game_id)
+        )
 
     def should_insert_game(self, game: Game) -> None:
-        self.mock_assertions.append(lambda: self.game_repository.insert.assert_called_once_with(game))
-
-
+        self.mock_assertions.append(
+            lambda: self.game_repository.insert.assert_called_once_with(game))

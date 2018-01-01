@@ -15,8 +15,10 @@ GameResponse = NamedTuple("GameResponse",
                            ("third_code_peg", int),
                            ("fourth_code_peg", int)])
 
-SearchGameResponse = NamedTuple("SearchGameResponse",
-                                [("maybe_game_response", Optional[GameResponse])])
+SearchGameResponse = NamedTuple(
+    "SearchGameResponse",
+    [("maybe_game_response", Optional[GameResponse])]
+)
 
 
 def game_to_response(game: Game)->GameResponse:

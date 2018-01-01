@@ -19,4 +19,5 @@ class ContextAwareTestCase(unittest.TestCase):
         ).all()
         for record in records:
             table_name = record[0]
-            self.context.database.query("""TRUNCATE TABLE `{}`""".format(table_name))
+            self.context.database.query(
+                """TRUNCATE TABLE `{}`""".format(table_name))

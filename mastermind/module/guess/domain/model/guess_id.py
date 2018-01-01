@@ -1,7 +1,8 @@
 from typing import NamedTuple
 
 from mastermind.module.shared.domain.validation.uuid_check import is_uuid
-from mastermind.module.shared.domain.validation.validation_exception import ValidationException
+from mastermind.module.shared.domain.validation.validation_exception\
+    import ValidationException
 
 
 class GuessId(NamedTuple("GameId", [("guess_id", str)])):

@@ -1,9 +1,13 @@
-from mastermind.module.game.application.search_game_use_case import SearchGameQueryHandler, SearchGameResponse, \
-    GameResponse
-from mastermind.module.game.test.behaviour.game_behaviour_spec import GameBehaviourSpec
-from mastermind.module.game.test.infrastructure.random.random_game import random_game
-from mastermind.module.game.test.infrastructure.random.random_game_id import random_game_id
-from mastermind.module.game.test.infrastructure.random.random_search_game_query import random_search_game_query
+from mastermind.module.game.application.search_game_use_case \
+    import SearchGameQueryHandler, SearchGameResponse, GameResponse
+from mastermind.module.game.test.behaviour.game_behaviour_spec \
+    import GameBehaviourSpec
+from mastermind.module.game.test.infrastructure.random.random_game \
+    import random_game
+from mastermind.module.game.test.infrastructure.random.random_game_id \
+    import random_game_id
+from mastermind.module.game.test.infrastructure.random.\
+    random_search_game_query import random_search_game_query
 
 
 class SearchGameSpecTest(GameBehaviourSpec):

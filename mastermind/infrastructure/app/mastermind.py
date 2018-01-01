@@ -2,12 +2,16 @@ from flask import Flask, jsonify
 from flask_restful import Resource, Api, reqparse
 
 from mastermind.infrastructure.context.context import Context
-from mastermind.module.game.application.create_game_use_case import CreateGameCommand
-from mastermind.module.game.domain.error.game_errors import GameError, GameAlreadyExists
-from mastermind.module.guess.application.create_guess_use_case import CreateGuessCommand
-from mastermind.module.guess.domain.error.guess_errors import GuessError, GuessAlreadyExists, GuessesLimitExceeded, \
-    GameNotFound
-from mastermind.module.shared.domain.validation.validation_exception import ValidationException
+from mastermind.module.game.application.create_game_use_case\
+    import CreateGameCommand
+from mastermind.module.game.domain.error.game_errors import\
+    GameError, GameAlreadyExists
+from mastermind.module.guess.application.create_guess_use_case\
+    import CreateGuessCommand
+from mastermind.module.guess.domain.error.guess_errors \
+    import GuessError, GuessAlreadyExists, GuessesLimitExceeded, GameNotFound
+from mastermind.module.shared.domain.validation.validation_exception\
+    import ValidationException
 
 
 class GamesController(Resource):
@@ -111,7 +115,8 @@ GET /game/{game-id}/guesses
 
 
 def validation_exception_handler(error: ValidationException):
-    response = jsonify({"error": "validation error - {}".format(error.__str__())})
+    response = jsonify(
+        {"error": "validation error - {}".format(error.__str__())})
     response.status_code = 422
     return response
 
@@ -141,9 +146,12 @@ def guess_error_handler(error: GuessError):
 def create_app(app_context: Context) -> Flask:
     app = Flask(__name__)
     api = Api(app)
-    api.add_resource(GamesController, '/games', resource_class_kwargs={"context": app_context})
-    api.add_resource(GuessesController, '/games/<game_id>/guesses', resource_class_kwargs={"context": app_context})
-    app.register_error_handler(ValidationException, validation_exception_handler)
+    api.add_resource(GamesController, '/games',
+                     resource_class_kwargs={"context": app_context})
+    api.add_resource(GuessesController, '/games/<game_id>/guesses',
+                     resource_class_kwargs={"context": app_context})
+    app.register_error_handler(
+        ValidationException, validation_exception_handler)
     app.register_error_handler(GameError, game_error_handler)
     app.register_error_handler(GuessError, guess_error_handler)
 

@@ -10,7 +10,6 @@ from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class GuessBehaviourSpec(unittest.TestCase):
-
     def setUp(self):
         super().setUp()
         GuessRepository.__abstractmethods__ = frozenset()
@@ -31,19 +30,38 @@ class GuessBehaviourSpec(unittest.TestCase):
 
     def should_not_find_guess(self, guess_id: GuessId):
         self.guess_repository.search.return_value = None
-        self.mock_assertions.append(lambda: self.guess_repository.search.assert_called_once_with(guess_id))
+        self.mock_assertions.append(
+            lambda: self.guess_repository
+                        .search
+                        .assert_called_once_with(guess_id)
+        )
 
     def should_find_guess(self, guess_id: GuessId, guess: Guess):
         self.guess_repository.search.return_value = guess
-        self.mock_assertions.append(lambda: self.guess_repository.search.assert_called_once_with(guess_id))
+        self.mock_assertions.append(
+            lambda: self.guess_repository
+                        .search
+                        .assert_called_once_with(guess_id)
+        )
 
-    def should_find_guesses_by_game_id(self, game_id: GameId, guesses: List[Guess]):
+    def should_find_guesses_by_game_id(
+            self,
+            game_id: GameId,
+            guesses: List[Guess]
+    ):
         self.guess_repository.search_by_game_id.return_value = guesses
-        self.mock_assertions.append(lambda: self.guess_repository.search_by_game_id.assert_called_once_with(game_id))
+        self.mock_assertions.append(
+            lambda: self.guess_repository
+                        .search_by_game_id
+                        .assert_called_once_with(game_id)
+        )
 
     def should_insert_guess(self, guess: Guess) -> None:
-        self.mock_assertions.append(lambda: self.guess_repository.insert.assert_called_once_with(guess))
+        self.mock_assertions.append(
+            lambda: self.guess_repository.insert.assert_called_once_with(guess)
+        )
 
     def should_ask_query(self, query, response) -> None:
         self.query_bus.ask.return_value = response
-        self.mock_assertions.append(lambda: self.query_bus.ask.assert_called_once_with(query))
+        self.mock_assertions.append(
+            lambda: self.query_bus.ask.assert_called_once_with(query))

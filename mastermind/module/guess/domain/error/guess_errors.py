@@ -11,13 +11,15 @@ class GuessError(abc.ABC, Exception):
 class GuessAlreadyExists(GuessError):
     def __init__(self, guess_id: GuessId) -> None:
         super(Exception, self).__init__(
-            "Guess with guess_id '{}' already exists.".format(guess_id.guess_id)
+            "Guess with guess_id '{}' already exists.".format(
+                guess_id.guess_id)
         )
 
 
 class GuessesLimitExceeded(GuessError):
     def __init__(self, game_id: GameId, limit: int) -> None:
-        msg = "Game with game_id '{}' can't exceed limit of '{}' guesses.".format(game_id.game_id, limit)
+        msg = "Game with game_id '{}' can't exceed limit of '{}' guesses." \
+            .format(game_id.game_id, limit)
         super(Exception, self).__init__(msg)
 
 

@@ -1,9 +1,12 @@
 from itertools import chain
 
-from mastermind.module.game.test.infrastructure.random.random_game_id import random_game_id
+from mastermind.module.game.test.infrastructure.random.random_game_id\
+    import random_game_id
 from mastermind.module.guess.domain.guess_repository import GuessRepository
-from mastermind.module.guess.test.infrastructure.random.random_guess import random_guess
-from mastermind.module.shared.test.infrastructure.context.context_aware_test_case import ContextAwareTestCase
+from mastermind.module.guess.test.infrastructure.random.random_guess\
+    import random_guess
+from mastermind.module.shared.test.infrastructure.context\
+    .context_aware_test_case import ContextAwareTestCase
 
 
 class GuessRepositoryTest(ContextAwareTestCase):

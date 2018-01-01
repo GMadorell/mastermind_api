@@ -1,13 +1,19 @@
 import json
 
 from mastermind.infrastructure.app.mastermind import create_app
-from mastermind.module.game.test.infrastructure.random.random_code_peg import invalid_code_peg
-from mastermind.module.game.test.infrastructure.random.random_game import random_game
-from mastermind.module.game.test.infrastructure.random.random_game_id import invalid_game_id, non_empty_invalid_game_id
-from mastermind.module.guess.test.infrastructure.random.random_guess import random_guess
-from mastermind.module.guess.test.infrastructure.random.random_guess_id import invalid_guess_id
+from mastermind.module.game.test.infrastructure.random.random_code_peg \
+    import invalid_code_peg
+from mastermind.module.game.test.infrastructure.random.random_game \
+    import random_game
+from mastermind.module.game.test.infrastructure.random.random_game_id \
+    import non_empty_invalid_game_id
+from mastermind.module.guess.test.infrastructure.random.random_guess \
+    import random_guess
+from mastermind.module.guess.test.infrastructure.random.random_guess_id \
+    import invalid_guess_id
 from mastermind.module.shared.domain.model.game_id import GameId
-from mastermind.module.shared.test.infrastructure.context.context_aware_test_case import ContextAwareTestCase
+from mastermind.module.shared.test.infrastructure.context \
+    .context_aware_test_case import ContextAwareTestCase
 
 
 class CreateGuessOnRequestTest(ContextAwareTestCase):
@@ -208,15 +214,14 @@ class CreateGuessOnRequestTest(ContextAwareTestCase):
             "fourth_code_peg": guess.fourth_peg.peg_type
         }
 
-        endpoint = self.__guess_endpoint_for_raw_game_id(non_empty_invalid_game_id())
+        endpoint = self.__guess_endpoint_for_raw_game_id(
+            non_empty_invalid_game_id())
         response = self.test_client.post(endpoint, data=request_data)
 
         self.assertEqual(response.status_code, 422)
 
-    def __guess_endpoint_for_game_id(self, game_id: GameId)->str:
+    def __guess_endpoint_for_game_id(self, game_id: GameId) -> str:
         return self.GUESS_ENDPOINT_TEMPLATE.format(game_id=game_id.game_id)
 
-    def __guess_endpoint_for_raw_game_id(self, raw_game_id: str)->str:
+    def __guess_endpoint_for_raw_game_id(self, raw_game_id: str) -> str:
         return self.GUESS_ENDPOINT_TEMPLATE.format(game_id=raw_game_id)
-
-

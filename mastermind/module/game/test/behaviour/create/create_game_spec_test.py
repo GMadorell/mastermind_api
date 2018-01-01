@@ -7,7 +7,8 @@ from mastermind.module.game.test.behaviour.game_behaviour_spec \
     import GameBehaviourSpec
 from mastermind.module.game.test.infrastructure.random. \
     random_create_game_command import random_create_game_command
-from mastermind.module.game.test.infrastructure.random.random_game import random_game
+from mastermind.module.game.test.infrastructure.random.random_game\
+    import random_game
 from mastermind.module.shared.domain.model.code_peg import CodePeg
 from mastermind.module.shared.domain.model.game_id import GameId
 
