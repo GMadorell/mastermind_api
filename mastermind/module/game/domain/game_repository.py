@@ -2,7 +2,7 @@ import abc
 from typing import Optional
 
 from mastermind.module.game.domain.model.game import Game
-from mastermind.module.game.domain.model.game_id import GameId
+from mastermind.module.shared.domain.model.game_id import GameId
 
 
 class GameRepository(abc.ABC):
@@ -10,5 +10,6 @@ class GameRepository(abc.ABC):
     def insert(self, game: Game) -> None:
         pass
 
+    @abc.abstractmethod
     def search(self, game_id: GameId) -> Optional[Game]:
         pass

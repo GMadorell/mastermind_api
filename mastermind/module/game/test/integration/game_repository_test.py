@@ -1,7 +1,10 @@
 from mastermind.module.game.domain.game_repository import GameRepository
-from mastermind.module.game.test.infrastructure.random.random_game import random_game
-from mastermind.module.game.test.infrastructure.random.random_game_id import random_game_id
-from mastermind.module.shared.test.infrastructure.context.context_aware_test_case import ContextAwareTestCase
+from mastermind.module.game.test.infrastructure.random.random_game \
+    import random_game
+from mastermind.module.game.test.infrastructure.random.random_game_id \
+    import random_game_id
+from mastermind.module.shared.test.infrastructure.context \
+    .context_aware_test_case import ContextAwareTestCase
 
 
 class GameRepositoryTest(ContextAwareTestCase):

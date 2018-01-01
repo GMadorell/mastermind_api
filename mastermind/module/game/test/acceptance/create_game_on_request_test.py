@@ -1,10 +1,14 @@
 import json
 
 from mastermind.infrastructure.app.mastermind import create_app
-from mastermind.module.game.test.infrastructure.random.random_code_peg import random_code_peg, invalid_code_peg
-from mastermind.module.game.test.infrastructure.random.random_game import random_game
-from mastermind.module.game.test.infrastructure.random.random_game_id import random_game_id, invalid_game_id
-from mastermind.module.shared.test.infrastructure.context.context_aware_test_case import ContextAwareTestCase
+from mastermind.module.game.test.infrastructure.random.random_code_peg \
+    import invalid_code_peg
+from mastermind.module.game.test.infrastructure.random.random_game \
+    import random_game
+from mastermind.module.game.test.infrastructure.random.random_game_id \
+    import invalid_game_id
+from mastermind.module.shared.test.infrastructure.context.\
+    context_aware_test_case import ContextAwareTestCase
 
 
 class CreateGameOnRequestTest(ContextAwareTestCase):

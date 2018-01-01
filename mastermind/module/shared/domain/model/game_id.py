@@ -1,7 +1,7 @@
-import re
 from typing import NamedTuple
 
-from mastermind.module.shared.domain.validation.validation_exception\
+from mastermind.module.shared.domain.validation.uuid_check import is_uuid
+from mastermind.module.shared.domain.validation.validation_exception \
     import ValidationException
 
 
@@ -15,9 +15,3 @@ class GameId(NamedTuple("GameId", [("game_id", str)])):
         if not is_uuid(string):
             raise ValidationException(
                 "Given game_id '{}' was not a correct uuid".format(string))
-
-
-def is_uuid(string: str) -> bool:
-    uuid_regex = re.compile(
-        "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
-    return uuid_regex.match(string) is not None
